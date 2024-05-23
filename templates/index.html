@@ -3,11 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>{{username}}'s Document</title>
+        <link rel="icon" href="{{ url_for('static', filename='maomi.svg') }}" sizes="32x32">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+
     </head>
     <body>
-        <h2>{{username}}'s Document</h2>
+        <h2>
+            <img alt="Avatar" class="avatar" src="{{url_for('static', filename='maomi.svg')}}">
+            {{username}}'s Document
+        </h2>
+        <img alt="walkcar" class="totoro" src="{{url_for('static', filename='maomi.svg')}}">
         <p>{{movie|length}} tit1s</p>
-        <ul>
+        <ul class="movie-list">
             {% for m in movie %}
             <li>{{m.name}}-{{m.year}}</li>
             {% endfor %}
