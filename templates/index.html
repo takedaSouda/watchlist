@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{username}}'s Document</title>
+    </head>
+    <body>
+        <h2>{{username}}'s Document</h2>
+        <p>{{movie|length}} tit1s</p>
+        <ul>
+            {% for m in movie %}
+            <li>{{m.name}}-{{m.year}}</li>
+            {% endfor %}
+        </ul>
+        <footer>
+            <small>&copy;200 <a href="http://www.baidu.com">baidu"</a></small>
+        </footer>
+    </body>
+</html>
