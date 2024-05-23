@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{username}}'s Document</title>
-        <link rel="icon" href="{{ url_for('static', filename='maomi.svg') }}" sizes="32x32">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
-
-    </head>
-    <body>
-        <h2>
-            <img alt="Avatar" class="avatar" src="{{url_for('static', filename='maomi.svg')}}">
-            {{username}}'s Document
-        </h2>
-        <img alt="walkcar" class="totoro" src="{{url_for('static', filename='maomi.svg')}}">
-        <p>{{movie|length}} tit1s</p>
-        <ul class="movie-list">
-            {% for m in movie %}
-            <li>{{m.name}}-{{m.year}}</li>
-            {% endfor %}
-        </ul>
-        <footer>
-            <small>&copy;200 <a href="http://www.baidu.com">baidu"</a></small>
-        </footer>
-    </body>
-</html>
+{%extends 'base.html'%}
+{%block content%}
+<p>{{movies|length}}</p>
+<ul class="movie-list">
+    {%for movie in movies%}
+    <li>
+        {{movie.title}}-{{movie.year}}
+        <span class="float-right">
+            <a class="imdb" href="http://www.imdb.com/find?q={{movie.title}}" target="_blank" title="find this movie on imdb">IMDB</a>
+        </span>
+    </li>
+    {%endfor%}
+</ul>
+<img alt="totoro" class="totoro" src="{{url_for('static',filename='maomi.svg')}}" title="(o’_o)">
+{%endblock%}
